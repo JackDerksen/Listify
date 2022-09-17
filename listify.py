@@ -28,7 +28,7 @@ def listify():
     elif (mode == '?') or (mode == 'help') or (mode == 'h'):
         print('\n - Auto mode detects numbers and converts them into int values,\n   everything else (words, letters, misc.) is kept as strings.\n')
         print(' - Auto singular mode seperates every single character in the\n   string and determines whether it is an int or a string.\n')
-        print(' - Numbers mode converts all numerical inputs into int values.\nThis does not support negative numbers.\n')
+        print(' - Numbers mode converts all numerical inputs into int values.\n   This does not support negative numbers.\n')
         print(' - Letters mode keeps everything as strings, and only appends\n   one letter at a time.\n')
         print(' - Words mode seperates words at every space and keeps them as\n   string values.\n')
         
