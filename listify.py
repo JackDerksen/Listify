@@ -8,7 +8,7 @@ def listify():
                             'letters', 'words', 'auto singlular',
                             'help', 'exit',
                             '1', '2', '3', '4', '5',
-                            'a', 'as', 'n', 'l', 'w',
+                            'a', 'as', 'n', 'l', 'w', 'h', 'e',
                             '?', 'x'
     ]
 
