@@ -1,24 +1,25 @@
-# A simple program intended to eliminate the monotony 
-# of typing out lists. 
+# A simple program intended to eliminate the monotony
+# of typing out lists.
 
 import sys
 
+
 def listify():
     possible_mode_inputs = ['auto', 'auto singular', 'numbers',
-                            'letters', 'words', 'auto singlular',
-                            'help', 'exit',
-                            '1', '2', '3', '4', '5',
-                            'a', 'as', 'n', 'l', 'w', 'h', 'e',
+                            'numbers as strings', 'letters', 'words',
+                            'auto singlular', 'help', 'exit',
+                            '1', '2', '3', '4', '5', '6',
+                            'a', 'as', 'n', 'nas', 'l', 'w', 'h', 'e',
                             '?', 'x'
-    ]
+                            ]
 
     mode = input(
-        '\nModes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Letters\n 5 - Words\n\n ? - Help\n X - Exit\n\n -> '
+        '\nModes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Numbers as strings\n 5 - Letters\n 6 - Words\n\n ? - Help\n X - Exit\n\n -> '
     ).lower()
-    
+
     while mode not in possible_mode_inputs:
         mode = input(
-            '\nInvalid input. Modes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Letters\n 5 - Words\n\n ? - Help\n X - Exit\n\n -> '
+            '\nInvalid input. Modes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Numbers as strings\n 5 - Letters\n 6 - Words\n\n ? - Help\n X - Exit\n\n -> '
         ).lower()
 
     if (mode == 'x') or (mode == 'exit') or (mode == 'e'):
@@ -29,9 +30,10 @@ def listify():
         print('\n - Auto mode detects numbers and converts them into int values,\n   everything else (words, letters, misc.) is kept as strings.\n')
         print(' - Auto singular mode seperates every single character in the\n   string and determines whether it is an int or a string.\n')
         print(' - Numbers mode converts all numerical inputs into int values.\n   This does not support negative numbers.\n')
+        print(' - Numbers as strings mode splits numbers at every space, but\n   keeps them as strings.\n')
         print(' - Letters mode keeps everything as strings, and only appends\n   one letter at a time.\n')
         print(' - Words mode seperates words at every space and keeps them as\n   string values.\n')
-        
+
         mode = input(
             '\nModes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Letters\n 5 - Words\n ? - Help\n X - Exit\n\n -> '
         ).lower()
@@ -40,7 +42,8 @@ def listify():
     # everything else (words, letters, misc.) is kept as strings.
     if (mode == '1') or (mode == 'auto') or (mode == 'a'):
         print('\n➡️ You\'ve entered \'auto\' mode.')
-        input_string = input('   Listify (seperate entries with spaces):\n     -> ')
+        input_string = input(
+            '   Listify (seperate entries with spaces):\n     -> ')
         # Used to check if the string is letters or numbers
         stripped = input_string.replace(' ', '')
 
@@ -100,12 +103,14 @@ def listify():
     # int values.
     elif (mode == '3') or (mode == 'numbers') or (mode == 'n'):
         print('\n➡️ You\'ve entered \'numbers\' mode.')
-        input_string = input('   Listify (seperate entries with spaces):\n     -> ')
+        input_string = input(
+            '   Listify (seperate entries with spaces):\n     -> ')
 
         stripped = input_string.replace(' ', '')
         while not stripped.isdigit():
             print('\n🔴 Invaild entry. This mode allows for the entry of numbers only.')
-            input_string = input('   Listify (seperate entries with spaces):\n     -> ')
+            input_string = input(
+                '   Listify (seperate entries with spaces):\n     -> ')
             stripped = input_string.replace(' ', '')
 
         _list = input_string.split()
@@ -117,9 +122,30 @@ def listify():
         print()
         print(f'🟢 Your list: {listified}')
 
+    elif (mode == '4') or (mode == 'numbers as strings') or (mode == 'nas'):
+        print('\n➡️ You\'ve entered \'numbers as strings\' mode.')
+        input_string = input(
+            '   Listify (seperate entries with spaces):\n     -> ')
+
+        stripped = input_string.replace(' ', '')
+        while not stripped.isdigit():
+            print('\n🔴 Invaild entry. This mode allows for the entry of numbers only.')
+            input_string = input(
+                '   Listify (seperate entries with spaces):\n     -> ')
+            stripped = input_string.replace(' ', '')
+
+        _list = input_string.split()
+        listified = []
+
+        for num in _list:
+            listified.append((num))
+
+        print()
+        print(f'🟢 Your list: {listified}')
+
     # Letters mode keeps everything as strings, and only
     # appends one letter at a time.
-    elif (mode == '4') or (mode == 'letters') or (mode == 'l'):
+    elif (mode == '5') or (mode == 'letters') or (mode == 'l'):
         print('\n➡️ You\'ve entered \'letters\' mode.')
         input_string = input('   Listify:\n     -> ')
 
@@ -139,14 +165,17 @@ def listify():
 
     # Words mode seperates words at every space and keeps
     # them as string values.
-    elif (mode == '5') or (mode == 'words') or (mode == 'w'):
+    elif (mode == '6') or (mode == 'words') or (mode == 'w'):
         print('\n➡️ You\'ve entered \'words\' mode.')
-        input_string = input('   Listify (seperate entries with spaces):\n     -> ')
+        input_string = input(
+            '   Listify (seperate entries with spaces):\n     -> ')
 
         stripped = input_string.replace(' ', '')
         while not stripped.isalpha():
-            print('\n🔴 Invaild entry. This mode allows for the entry of words or letters only.')
-            input_string = input('   Listify (seperate entries with spaces):\n     -> ')
+            print(
+                '\n🔴 Invaild entry. This mode allows for the entry of words or letters only.')
+            input_string = input(
+                '   Listify (seperate entries with spaces):\n     -> ')
 
         listified = input_string.split()
 
