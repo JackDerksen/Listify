@@ -19,7 +19,7 @@ def listify():
 
     while mode not in possible_mode_inputs:
         mode = input(
-            '\nInvalid input. Modes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Numbers as strings\n 5 - Letters\n 6 - Words\n\n ? - Help\n X - Exit\n\n -> '
+            '\n🔴 Invalid input. Modes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Numbers as strings\n 5 - Letters\n 6 - Words\n\n ? - Help\n X - Exit\n\n -> '
         ).lower()
 
     if (mode == 'x') or (mode == 'exit') or (mode == 'e'):
@@ -35,8 +35,13 @@ def listify():
         print(' - Words mode seperates words at every space and keeps them as\n   string values.\n')
 
         mode = input(
-            '\nModes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Letters\n 5 - Words\n ? - Help\n X - Exit\n\n -> '
+            '\nModes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Letters\n 5 - Words\n\n X - Exit\n\n -> '
         ).lower()
+
+        while mode not in possible_mode_inputs:
+            mode = input(
+            '\n🔴 Invalid input. Modes:\n 1 - Auto\n 2 - Auto Singular\n 3 - Numbers\n 4 - Numbers as strings\n 5 - Letters\n 6 - Words\n\n X - Exit\n\n -> '
+            ).lower()
 
     # Auto mode detects numbers and converts them into int values,
     # everything else (words, letters, misc.) is kept as strings.
